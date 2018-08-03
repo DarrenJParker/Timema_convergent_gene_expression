@@ -1,0 +1,61 @@
+### ReviGO output for reproductive-tract samples
+# Group_N = functional GO term group	
+# N_GOs	= Number of GO terms in group
+# GO_Terms = GO terms IDs	
+# GO_Desc = GO terms descriptions
+# pval = enrichment p-value
+Group_N	N_GOs	GO_Terms	GO_Desc	pval
+Group_1	3	GO:0002181, GO:0006413, GO:0006414	cytoplasmic translation, translational initiation, translational elongation	0.00004900044227932357944298111602
+Group_2	1	GO:0035209	pupal development	0.0001800113960418010858503722306
+Group_3	3	GO:0000212, GO:0007135, GO:0051298	meiotic spindle organization, meiosis II, centrosome duplication	0.0003100273441998191004701179048
+Group_4	6	GO:0006919, GO:2001267, GO:2001269, GO:0043281, GO:0043280, GO:0006915	activation of cysteine-type endopeptidase activity involved in apoptotic process, regulation of cysteine-type endopeptidase activity involved in apoptotic signaling pathway, positive regulation of cysteine-type endopeptidase activity involved in apoptotic signaling pathway, regulation of cysteine-type endopeptidase activity involved in apoptotic process, positive regulation of cysteine-type endopeptidase activity involved in apoptotic process, apoptotic process	0.0004499870338721505674721917169
+Group_5	5	GO:0006694, GO:0019216, GO:0042759, GO:0042761, GO:0019368	steroid biosynthetic process, regulation of lipid metabolic process, long-chain fatty acid biosynthetic process, very long-chain fatty acid biosynthetic process, fatty acid elongation; unsaturated fatty acid	0.0007399459543127240414214700672
+Group_6	3	GO:0022008, GO:0048666, GO:0048699	neurogenesis, neuron development, generation of neurons	0.001429881344481373710169471495
+Group_7	11	GO:0045454, GO:0055082, GO:0055080, GO:0055076, GO:0006873, GO:0048878, GO:0050801, GO:0042632, GO:0046916, GO:0030003, GO:0098771	cell redox homeostasis, cellular chemical homeostasis, cation homeostasis, transition metal ion homeostasis, cellular ion homeostasis, chemical homeostasis, ion homeostasis, cholesterol homeostasis, cellular transition metal ion homeostasis, cellular cation homeostasis, inorganic ion homeostasis	0.001699808513203496643512814191
+Group_8	3	GO:0000915, GO:0007110, GO:0007111	actomyosin contractile ring assembly, meiosis I cytokinesis, meiosis II cytokinesis	0.002730234812940070838133603502
+Group_9	14	GO:0051640, GO:0070142, GO:1902582, GO:0036465, GO:1902580, GO:0016185, GO:0097479, GO:0048488, GO:0097480, GO:0048489, GO:0051656, GO:0099504, GO:0051650, GO:0051648	organelle localization, synaptic vesicle budding, single-organism intracellular transport, synaptic vesicle recycling, single-organism cellular localization, synaptic vesicle budding from presynaptic endocytic zone membrane, synaptic vesicle localization, synaptic vesicle endocytosis, establishment of synaptic vesicle localization, synaptic vesicle transport, establishment of organelle localization, synaptic vesicle cycle, establishment of vesicle localization, vesicle localization	0.002749792986895066742558602669
+Group_10	1	GO:0072348	sulfur compound transport	0.003860112837453199672796719324
+Group_11	15	GO:0007291, GO:0044703, GO:0044702, GO:0032504, GO:0008052, GO:0010160, GO:0048859, GO:0048609, GO:0016360, GO:0019953, GO:0048645, GO:0007276, GO:0022414, GO:0048137, GO:0060582	sperm individualization, multi-organism reproductive process, single organism reproductive process, multicellular organism reproduction, sensory organ boundary specification, formation of animal organ boundary, formation of anatomical boundary, multicellular organismal reproductive process, sensory organ precursor cell fate determination, sexual reproduction, animal organ formation, gamete generation, reproductive process, spermatocyte division, cell fate determination involved in pattern specification	0.004169653822449890697712211348
+Group_12	1	GO:0006997	nucleus organization	0.005000345349769784988198131227
+Group_13	1	GO:0042744	hydrogen peroxide catabolic process	0.005170112579686550031013927109
+Group_14	1	GO:0031987	locomotion involved in locomotory behavior	0.005329666080102769166786349245
+Group_15	1	GO:0010038	response to metal ion	0.005490349610252035911484336255
+Group_16	2	GO:0007584, GO:0051780	response to nutrient, behavioral response to nutrient	0.005739842822249422991076558350
+Group_17	1	GO:0042811	pheromone biosynthetic process	0.007059923578936671980682254903
+Group_18	1	GO:0007040	lysosome organization	0.007239357102423039925417154995
+Group_19	2	GO:0045746, GO:0090101	negative regulation of Notch signaling pathway, negative regulation of transmembrane receptor protein serine/threonine kinase signaling pathway	0.007259387846070240129314303823
+Group_20	7	GO:0006397, GO:0043484, GO:0008380, GO:0000377, GO:0000375, GO:0000398, GO:0050684	mRNA processing, regulation of RNA splicing, RNA splicing, RNA splicing; via transesterification reactions with bulged adenosine as nucleophile, RNA splicing; via transesterification reactions, mRNA splicing; via spliceosome, regulation of mRNA processing	0.008609937521846006490412447356
+Group_21	1	GO:0000041	transition metal ion transport	0.008679605772923775993660917795
+Group_22	1	GO:0007295	growth of a germarium-derived egg chamber	0.01105095982331538626585390810
+Group_23	1	GO:0007267	cell-cell signaling	0.01130056089748535961738191183
+Group_24	1	GO:0050794	regulation of cellular process	0.01198947040479420395786049052
+Group_25	1	GO:0070417	cellular response to cold	0.01245087863916053902347740876
+Group_26	3	GO:0080090, GO:0031323, GO:0060255	regulation of primary metabolic process, regulation of cellular metabolic process, regulation of macromolecule metabolic process	0.01267068224998548413865344630
+Group_27	4	GO:0045833, GO:0050995, GO:0050994, GO:0045834	negative regulation of lipid metabolic process, negative regulation of lipid catabolic process, regulation of lipid catabolic process, positive regulation of lipid metabolic process	0.01658059075108917496385840201
+Group_28	2	GO:0060581, GO:0001708	cell fate commitment involved in pattern specification, cell fate specification	0.01807174126010927072936773367
+Group_29	1	GO:0045165	cell fate commitment	0.01825156040091367462382169715
+Group_30	1	GO:0019222	regulation of metabolic process	0.02306747188720069148960956391
+Group_31	7	GO:0051130, GO:0048522, GO:0032880, GO:0006898, GO:0045807, GO:0050766, GO:0099003	positive regulation of cellular component organization, positive regulation of cellular process, regulation of protein localization, receptor-mediated endocytosis, positive regulation of endocytosis, positive regulation of phagocytosis, vesicle-mediated transport in synapse	0.02335070514863077054027467853
+Group_32	1	GO:0006006	glucose metabolic process	0.02339914561055099495434489714
+Group_33	1	GO:0016050	vesicle organization	0.02340992379690396507729229125
+Group_34	6	GO:0007268, GO:0098916, GO:0030177, GO:0090263, GO:0099537, GO:0099536	chemical synaptic transmission, anterograde trans-synaptic signaling, positive regulation of Wnt signaling pathway, positive regulation of canonical Wnt signaling pathway, trans-synaptic signaling, synaptic signaling	0.02517097277959782624588738753
+Group_35	1	GO:0045880	positive regulation of smoothened signaling pathway	0.02549764087799282408414447898
+Group_36	1	GO:0030431	sleep	0.02749159896551038911629507114
+Group_37	1	GO:0016197	endosomal transport	0.02900681198693153682283246370
+Group_38	1	GO:0006895	Golgi to endosome transport	0.03064079293806048480283049473
+Group_39	1	GO:0042592	homeostatic process	0.03187131627022800507810283858
+Group_40	1	GO:0007588	excretion	0.03255367324716363861733724094
+Group_41	4	GO:0006642, GO:0046464, GO:0046461, GO:0019433	triglyceride mobilization, acylglycerol catabolic process, neutral lipid catabolic process, triglyceride catabolic process	0.03287002239687752410352917766
+Group_42	1	GO:0031936	negative regulation of chromatin silencing	0.03303695410368147905898593438
+Group_43	1	GO:0050878	regulation of body fluid levels	0.03465772089935486087414805439
+Group_44	1	GO:0050817	coagulation	0.03465772089935486087414805439
+Group_45	2	GO:0042381, GO:0007599	hemolymph coagulation, hemostasis	0.03465772089935486087414805439
+Group_46	1	GO:0045498	sex comb development	0.03681289736425314366291681524
+Group_47	1	GO:0009306	protein secretion	0.03837072454922787686270648509
+Group_48	1	GO:0008037	cell recognition	0.04084134161710768919536684128
+Group_49	3	GO:0008038, GO:0016198, GO:0016199	neuron recognition, axon choice point recognition, axon midline choice point recognition	0.04084134161710768919536684128
+Group_50	1	GO:0065007	biological regulation	0.04269725940480336171575403159
+Group_51	1	GO:0006541	glutamine metabolic process	0.04275628861515862084207522888
+Group_52	1	GO:0097164	ammonium ion metabolic process	0.04393392456444763927534493460
+Group_53	1	GO:0060326	cell chemotaxis	0.04477133041763625257522994517
+Group_54	1	GO:0051036	regulation of endosome size	0.04965923214503360804552293756

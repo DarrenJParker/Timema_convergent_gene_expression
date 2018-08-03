@@ -1,0 +1,21 @@
+# Reference_sp = Species. Tbi = T. bartmani, Tce = T. cristinae, Tps = T. poppensis, Tcm = T. californicum, Tpa = T. podura, Tte = T. tahoe, Tms = T. monikensis, Tdi = T. douglasi, Tsi = T. shepardi, Tge = T. genevievae
+# Total_genes = Total number of genes in the assembly
+# Filtered = Number of genes after filtering rRNA and contaminants
+# Total_RBBH = Number of genes with a reciprocal best blast hits to its sister species 	
+# WB_expressed = Number of genes expressed in whole-body samples
+# RT_expressed = Number of genes expressed in reproductive tract samples	
+# LG_expressed = Number of genes expressed in legs samples
+# WB_convergent = Number of convergent genes in whole-body samples
+# RT_convergent = Number of convergent genes in reproductive tract samples
+# LG_convergent = Number of convergent genes in legs samples
+Reference_sp	Total_genes	Filtered	Total_RBBH	WB_expressed	RT_expressed	LG_expressed	WB_convergent	RT_convergent	LG_convergent
+Tbi	27291	25865	17583	9302	8686	7647	425	621	593
+Tce	28226	26875	17170	9291	8380	7229	458	644	557
+Tcm	25525	23435	15500	9303	8050	7699	389	541	546
+Tdi	34103	32651	15932	9280	8292	7571	384	502	528
+Tge	39058	37372	16113	8396	7496	6669	307	517	444
+Tms	39444	37847	17170	9233	8348	7241	420	634	529
+Tpa	33170	31240	16113	8449	7534	6722	328	526	449
+Tps	25477	24287	15932	9285	8321	7586	380	486	525
+Tsi	37608	36007	15500	9304	8017	7695	383	541	531
+Tte	38685	36934	17583	9303	8699	7693	389	633	590

@@ -1,0 +1,50 @@
+### ReviGO output for whole-body samples
+# Group_N = functional GO term group	
+# N_GOs	= Number of GO terms in group
+# GO_Terms = GO terms IDs	
+# GO_Desc = GO terms descriptions
+# pval = enrichment p-value
+Group_N	N_GOs	GO_Terms	GO_Desc	pval
+Group_1	4	GO:0071390, GO:0030518, GO:0043401, GO:0035076	cellular response to ecdysone, intracellular steroid hormone receptor signaling pathway, steroid hormone mediated signaling pathway, ecdysone receptor-mediated signaling pathway	0.0007299615757292975600477556641
+Group_2	6	GO:1902600, GO:0015991, GO:0099132, GO:0099131, GO:0090662, GO:0015988	hydrogen ion transmembrane transport, ATP hydrolysis coupled proton transport, ATP hydrolysis coupled cation transmembrane transport, ATP hydrolysis coupled ion transmembrane transport, ATP hydrolysis coupled transmembrane transport, energy coupled proton transmembrane transport; against electrochemical gradient	0.002999853181190792854982626606
+Group_3	3	GO:0009068, GO:0006551, GO:1901606	aspartate family amino acid catabolic process, leucine metabolic process, alpha-amino acid catabolic process	0.003359696136912140245506299412
+Group_4	1	GO:1900408	negative regulation of cellular response to oxidative stress	0.003359696136912140245506299412
+Group_5	2	GO:0002181, GO:0032543	cytoplasmic translation, mitochondrial translation	0.003599979270433566724599645813
+Group_6	3	GO:0035207, GO:0002433, GO:0002768	negative regulation of hemocyte proliferation, immune response-regulating cell surface receptor signaling pathway involved in phagocytosis, immune response-regulating cell surface receptor signaling pathway	0.003760105236684958408021076680
+Group_7	4	GO:0035303, GO:0045936, GO:0010563, GO:0006470	regulation of dephosphorylation, negative regulation of phosphate metabolic process, negative regulation of phosphorus metabolic process, protein dephosphorylation	0.004499870338721505674721917169
+Group_8	4	GO:0006275, GO:0090329, GO:2000104, GO:0008156	regulation of DNA replication, regulation of DNA-dependent DNA replication, negative regulation of DNA-dependent DNA replication, negative regulation of DNA replication	0.006290714855478362750040468110
+Group_9	7	GO:0051489, GO:0032272, GO:0030833, GO:0031338, GO:0031346, GO:0030048, GO:0008361	regulation of filopodium assembly, negative regulation of protein polymerization, regulation of actin filament polymerization, regulation of vesicle fusion, positive regulation of cell projection organization, actin filament-based movement, regulation of cell size	0.006790472582051877699314454551
+Group_10	3	GO:0016476, GO:0048813, GO:0016358	regulation of embryonic cell shape, dendrite morphogenesis, dendrite development	0.007350214276467942227018583007
+Group_11	5	GO:0007619, GO:0060179, GO:0007617, GO:0008049, GO:0046693	courtship behavior, male mating behavior, mating behavior, male courtship behavior, sperm storage	0.01120985512875314322767718226
+Group_12	13	GO:0007269, GO:0023061, GO:0099643, GO:0030150, GO:0072583, GO:0099531, GO:0036465, GO:0097479, GO:0048488, GO:0097480, GO:0048489, GO:0099003, GO:0099504	neurotransmitter secretion, signal release, signal release from synapse, protein import into mitochondrial matrix, clathrin-dependent endocytosis, presynaptic process involved in chemical synaptic transmission, synaptic vesicle recycling, synaptic vesicle localization, synaptic vesicle endocytosis, establishment of synaptic vesicle localization, synaptic vesicle transport, vesicle-mediated transport in synapse, synaptic vesicle cycle	0.01141037716319727754297926894
+Group_13	6	GO:0045597, GO:0010976, GO:0010720, GO:0045666, GO:0051962, GO:0050769	positive regulation of cell differentiation, positive regulation of neuron projection development, positive regulation of cell development, positive regulation of neuron differentiation, positive regulation of nervous system development, positive regulation of neurogenesis	0.01466898282206286501342160182
+Group_14	1	GO:0007588	excretion	0.01735002080881570148236464683
+Group_15	8	GO:0030097, GO:0048534, GO:0002520, GO:1903707, GO:0035099, GO:0035167, GO:0035166, GO:0035162	hemopoiesis, hematopoietic or lymphoid organ development, immune system development, negative regulation of hemopoiesis, hemocyte migration, larval lymph gland hemopoiesis, post-embryonic hemopoiesis, embryonic hemopoiesis	0.01763193596823832595879328385
+Group_16	1	GO:0007618	mating	0.02052106991451269905327523151
+Group_17	1	GO:0001101	response to acid chemical	0.02088815108023389258900405555
+Group_18	4	GO:0022407, GO:0030155, GO:0022409, GO:0045785	regulation of cell-cell adhesion, regulation of cell adhesion, positive regulation of cell-cell adhesion, positive regulation of cell adhesion	0.02117873420723706301438772360
+Group_19	1	GO:0051272	positive regulation of cellular component movement	0.02235115652882337295502321143
+Group_20	6	GO:0009101, GO:0043413, GO:0009100, GO:1901137, GO:0006487, GO:0006486	glycoprotein biosynthetic process, macromolecule glycosylation, glycoprotein metabolic process, carbohydrate derivative biosynthetic process, protein N-linked glycosylation, protein glycosylation	0.02532211635280830176787955988
+Group_21	1	GO:0061028	establishment of endothelial barrier	0.02635117589863841192444050603
+Group_22	1	GO:0008364	pupal chitin-based cuticle development	0.02808018728116636683310149965
+Group_23	1	GO:0060278	regulation of ovulation	0.02819031962636472181360901265
+Group_24	2	GO:0017145, GO:0048142	stem cell division, germarium-derived cystoblast division	0.02995021883751126611308054939
+Group_25	1	GO:0006730	one-carbon metabolic process	0.03031796170085468091835544356
+Group_26	1	GO:0006919	activation of cysteine-type endopeptidase activity involved in apoptotic process	0.03088872626512753859759509971
+Group_27	3	GO:0014067, GO:0090090, GO:0014066	negative regulation of phosphatidylinositol 3-kinase signaling, negative regulation of canonical Wnt signaling pathway, regulation of phosphatidylinositol 3-kinase signaling	0.03562049907308446498317748486
+Group_28	1	GO:0018904	ether metabolic process	0.03570261280390152926032263875
+Group_29	1	GO:0006662	glycerol ether metabolic process	0.03570261280390152926032263875
+Group_30	1	GO:0042558	pteridine-containing compound metabolic process	0.03610771451003529672239511381
+Group_31	1	GO:0035385	Roundabout signaling pathway	0.03623264175531326285424202583
+Group_32	1	GO:0031400	negative regulation of protein modification process	0.03635800123001434585383402929
+Group_33	1	GO:0001505	regulation of neurotransmitter levels	0.03924641573534600100424023986
+Group_34	1	GO:0090251	protein localization involved in establishment of planar polarity	0.03948207780378826817354384054
+Group_35	1	GO:1902414	protein localization to cell junction	0.03948207780378826817354384054
+Group_36	1	GO:0071896	protein localization to adherens junction	0.03948207780378826817354384054
+Group_37	1	GO:0045176	apical protein localization	0.04020684539919128196803289067
+Group_38	1	GO:1903040	exon-exon junction complex assembly	0.04044827453799995835257980454
+Group_39	1	GO:0007349	cellularization	0.04079434834160958169537851923
+Group_40	1	GO:0045199	maintenance of epithelial cell apical/basal polarity	0.04659078201101276705549559397
+Group_41	1	GO:0032486	Rap protein signal transduction	0.04758827909888168720199997591
+Group_42	1	GO:0035214	eye-antennal disc development	0.04839494493016626292497035879
+Group_43	1	GO:0070085	glycosylation	0.04845069375499794576715803067
