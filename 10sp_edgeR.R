@@ -467,6 +467,104 @@ p3 + theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
 
 
 
+###### filt by log fold change
+
+FC_thesh = 1
+
+N_sig_genes_10sp_S_A_logFC_1 <- as.data.frame(c(
+sum(sqrt(TTT_Tbi_lrt_WB_10sp_S_A$S_logFC_list * TTT_Tbi_lrt_WB_10sp_S_A$S_logFC_list) > FC_thesh),
+sum(sqrt(TTT_Tce_lrt_WB_10sp_S_A$S_logFC_list * TTT_Tce_lrt_WB_10sp_S_A$S_logFC_list) > FC_thesh),
+sum(sqrt(TTT_Tcm_lrt_WB_10sp_S_A$S_logFC_list * TTT_Tcm_lrt_WB_10sp_S_A$S_logFC_list) > FC_thesh),
+sum(sqrt(TTT_Tpa_lrt_WB_10sp_S_A$S_logFC_list * TTT_Tpa_lrt_WB_10sp_S_A$S_logFC_list) > FC_thesh),
+sum(sqrt(TTT_Tps_lrt_WB_10sp_S_A$S_logFC_list * TTT_Tps_lrt_WB_10sp_S_A$S_logFC_list) > FC_thesh),
+
+sum(sqrt(TTT_Tbi_lrt_RT_10sp_S_A$S_logFC_list * TTT_Tbi_lrt_RT_10sp_S_A$S_logFC_list) > FC_thesh),
+sum(sqrt(TTT_Tce_lrt_RT_10sp_S_A$S_logFC_list * TTT_Tce_lrt_RT_10sp_S_A$S_logFC_list) > FC_thesh),
+sum(sqrt(TTT_Tcm_lrt_RT_10sp_S_A$S_logFC_list * TTT_Tcm_lrt_RT_10sp_S_A$S_logFC_list) > FC_thesh),
+sum(sqrt(TTT_Tpa_lrt_RT_10sp_S_A$S_logFC_list * TTT_Tpa_lrt_RT_10sp_S_A$S_logFC_list) > FC_thesh),
+sum(sqrt(TTT_Tps_lrt_RT_10sp_S_A$S_logFC_list * TTT_Tps_lrt_RT_10sp_S_A$S_logFC_list) > FC_thesh),
+
+sum(sqrt(TTT_Tbi_lrt_LG_10sp_S_A$S_logFC_list * TTT_Tbi_lrt_LG_10sp_S_A$S_logFC_list) > FC_thesh),
+sum(sqrt(TTT_Tce_lrt_LG_10sp_S_A$S_logFC_list * TTT_Tce_lrt_LG_10sp_S_A$S_logFC_list) > FC_thesh),
+sum(sqrt(TTT_Tcm_lrt_LG_10sp_S_A$S_logFC_list * TTT_Tcm_lrt_LG_10sp_S_A$S_logFC_list) > FC_thesh),
+sum(sqrt(TTT_Tpa_lrt_LG_10sp_S_A$S_logFC_list * TTT_Tpa_lrt_LG_10sp_S_A$S_logFC_list) > FC_thesh),
+sum(sqrt(TTT_Tps_lrt_LG_10sp_S_A$S_logFC_list * TTT_Tps_lrt_LG_10sp_S_A$S_logFC_list) > FC_thesh)
+))
+
+
+names(N_sig_genes_10sp_S_A_logFC_1) <- "Nsiggenes"
+N_sig_genes_10sp_S_A_logFC_1$sp <- c("Tbi","Tce","Tcm","Tpa","Tps","Tbi","Tce","Tcm","Tpa","Tps","Tbi","Tce","Tcm","Tpa","Tps")
+N_sig_genes_10sp_S_A_logFC_1$tiss <- c("WB","WB","WB","WB","WB","RT","RT","RT","RT","RT","LG","LG","LG","LG","LG")
+N_sig_genes_10sp_S_A_logFC_1$group <- paste(N_sig_genes_10sp_S_A$sp, N_sig_genes_10sp_S_A$tiss, sep = "_")
+
+N_sig_genes_10sp_S_A_logFC_1$group_ordered <-  ordered(N_sig_genes_10sp_S_A_logFC_1$group, levels=c(
+"Tbi_WB","Tbi_RT","Tbi_LG",
+"Tce_WB","Tce_RT","Tce_LG",
+"Tps_WB","Tps_RT","Tps_LG",
+"Tcm_WB","Tcm_RT","Tcm_LG",
+"Tpa_WB","Tpa_RT","Tpa_LG"
+))
+
+p3a <- ggplot(N_sig_genes_10sp_S_A_logFC_1, aes(factor(group_ordered), Nsiggenes, fill = tiss )) + 
+	geom_bar(stat="identity", position = "dodge") + 
+	theme_bw() +
+	xlab ("Species pair") + 
+	ylab ("Number of DE genes, FDR < 0.05, FC > 2")  +
+	scale_y_continuous(expand = c(0,0)) + 
+	coord_cartesian(ylim=c(-0,300)) 
+	
+p3a + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + 
+   scale_fill_manual(values=c("#56B4E9", "firebrick3", "black"))
+
+
+FC_thesh = 2
+
+N_sig_genes_10sp_S_A_logFC_2 <- as.data.frame(c(
+sum(sqrt(TTT_Tbi_lrt_WB_10sp_S_A$S_logFC_list * TTT_Tbi_lrt_WB_10sp_S_A$S_logFC_list) > FC_thesh),
+sum(sqrt(TTT_Tce_lrt_WB_10sp_S_A$S_logFC_list * TTT_Tce_lrt_WB_10sp_S_A$S_logFC_list) > FC_thesh),
+sum(sqrt(TTT_Tcm_lrt_WB_10sp_S_A$S_logFC_list * TTT_Tcm_lrt_WB_10sp_S_A$S_logFC_list) > FC_thesh),
+sum(sqrt(TTT_Tpa_lrt_WB_10sp_S_A$S_logFC_list * TTT_Tpa_lrt_WB_10sp_S_A$S_logFC_list) > FC_thesh),
+sum(sqrt(TTT_Tps_lrt_WB_10sp_S_A$S_logFC_list * TTT_Tps_lrt_WB_10sp_S_A$S_logFC_list) > FC_thesh),
+
+sum(sqrt(TTT_Tbi_lrt_RT_10sp_S_A$S_logFC_list * TTT_Tbi_lrt_RT_10sp_S_A$S_logFC_list) > FC_thesh),
+sum(sqrt(TTT_Tce_lrt_RT_10sp_S_A$S_logFC_list * TTT_Tce_lrt_RT_10sp_S_A$S_logFC_list) > FC_thesh),
+sum(sqrt(TTT_Tcm_lrt_RT_10sp_S_A$S_logFC_list * TTT_Tcm_lrt_RT_10sp_S_A$S_logFC_list) > FC_thesh),
+sum(sqrt(TTT_Tpa_lrt_RT_10sp_S_A$S_logFC_list * TTT_Tpa_lrt_RT_10sp_S_A$S_logFC_list) > FC_thesh),
+sum(sqrt(TTT_Tps_lrt_RT_10sp_S_A$S_logFC_list * TTT_Tps_lrt_RT_10sp_S_A$S_logFC_list) > FC_thesh),
+
+sum(sqrt(TTT_Tbi_lrt_LG_10sp_S_A$S_logFC_list * TTT_Tbi_lrt_LG_10sp_S_A$S_logFC_list) > FC_thesh),
+sum(sqrt(TTT_Tce_lrt_LG_10sp_S_A$S_logFC_list * TTT_Tce_lrt_LG_10sp_S_A$S_logFC_list) > FC_thesh),
+sum(sqrt(TTT_Tcm_lrt_LG_10sp_S_A$S_logFC_list * TTT_Tcm_lrt_LG_10sp_S_A$S_logFC_list) > FC_thesh),
+sum(sqrt(TTT_Tpa_lrt_LG_10sp_S_A$S_logFC_list * TTT_Tpa_lrt_LG_10sp_S_A$S_logFC_list) > FC_thesh),
+sum(sqrt(TTT_Tps_lrt_LG_10sp_S_A$S_logFC_list * TTT_Tps_lrt_LG_10sp_S_A$S_logFC_list) > FC_thesh)
+))
+
+
+names(N_sig_genes_10sp_S_A_logFC_2) <- "Nsiggenes"
+N_sig_genes_10sp_S_A_logFC_2$sp <- c("Tbi","Tce","Tcm","Tpa","Tps","Tbi","Tce","Tcm","Tpa","Tps","Tbi","Tce","Tcm","Tpa","Tps")
+N_sig_genes_10sp_S_A_logFC_2$tiss <- c("WB","WB","WB","WB","WB","RT","RT","RT","RT","RT","LG","LG","LG","LG","LG")
+N_sig_genes_10sp_S_A_logFC_2$group <- paste(N_sig_genes_10sp_S_A$sp, N_sig_genes_10sp_S_A$tiss, sep = "_")
+
+N_sig_genes_10sp_S_A_logFC_2$group_ordered <-  ordered(N_sig_genes_10sp_S_A_logFC_1$group, levels=c(
+"Tbi_WB","Tbi_RT","Tbi_LG",
+"Tce_WB","Tce_RT","Tce_LG",
+"Tps_WB","Tps_RT","Tps_LG",
+"Tcm_WB","Tcm_RT","Tcm_LG",
+"Tpa_WB","Tpa_RT","Tpa_LG"
+))
+
+p3b <- ggplot(N_sig_genes_10sp_S_A_logFC_2, aes(factor(group_ordered), Nsiggenes, fill = tiss )) + 
+	geom_bar(stat="identity", position = "dodge") + 
+	theme_bw() +
+	xlab ("Species pair") + 
+	ylab ("Number of DE genes, FDR < 0.05, FC > 4")  +
+	scale_y_continuous(expand = c(0,0)) + 
+	coord_cartesian(ylim=c(-0,80)) 
+	
+p3b + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + 
+   scale_fill_manual(values=c("#56B4E9", "firebrick3", "black"))
+
+
 ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### ##### 
 ##### lets venn
 
