@@ -1,6 +1,6 @@
 # Timema_convergent_gene_expression
 
-This is the repository for the collected scripts used in the study *"Genes involved in the convergent evolution of asexuality in stick insects"* currently under review.
+This is the repository for the collected scripts used in the study *"Repeated evolution of asexuality involves convergent gene expression changes."* currently under review.
 
 ## Components
 
@@ -101,6 +101,7 @@ Tissue | Abbreviation
 Whole-body| WB
 Reproductive tract | RT
 Legs | LG
+
 
 
 
