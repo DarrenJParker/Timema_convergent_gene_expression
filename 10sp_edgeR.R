@@ -162,6 +162,102 @@ y_LG_10sp <- filt_and_norm_maj(y_LG_10sp_UF,0.5,2)
 #  2737   30
 
 
+#################################################################################################
+### Calculate mean logCPMs for each sample for OU analysis
+
+CPM_WB_10sp <- as.data.frame(cpm(y_WB_10sp, log = T))
+rownames(CPM_WB_10sp) <- as.character(y_WB_10sp$genes$genes)
+
+CPM_RT_10sp <- as.data.frame(cpm(y_RT_10sp, log = T))
+rownames(CPM_RT_10sp) <- as.character(y_RT_10sp$genes$genes)
+
+CPM_LG_10sp <- as.data.frame(cpm(y_LG_10sp, log = T))
+rownames(CPM_LG_10sp) <- as.character(y_LG_10sp$genes$genes)
+
+
+mean_CPM_calc <- function(df,vec_of_col_names,base_out){
+	
+	### make matrix
+	
+	a1 <- vec_of_col_names[1]
+	
+	print(a1)
+	
+	Rep1 <- eval(parse(text=paste(df,"$",vec_of_col_names[1],sep="")))
+	Rep2 <- eval(parse(text=paste(df,'$',vec_of_col_names[2],sep='')))
+	Rep3 <- eval(parse(text=paste(df,'$',vec_of_col_names[3],sep='')))
+
+	mat_0 <- as.matrix(cbind(Rep1, Rep2, Rep3))
+	df <- eval(parse(text=df))
+	
+	mean_list <- c() 
+	
+	for(i in 1:nrow(df)) {   
+		a <- mat_0[i,]
+		d <- mean(a) 
+		mean_list <- c(mean_list,d)
+	}
+	
+
+	df4 <- as.data.frame(cbind(mean_list))
+
+	colnames(df4) <- paste(base_out, "CPM_mean", sep = "_")	
+	rownames(df4) <- rownames(df)
+
+	return(df4)
+}
+
+
+### WB 
+WB_10sp_mean_CPM <- cbind(
+mean_CPM_calc("CPM_WB_10sp", c("Tbi_SF_WB_Re1", "Tbi_SF_WB_Re2", "Tbi_SF_WB_Re3"), "Tbi_SF_WB"),
+mean_CPM_calc("CPM_WB_10sp", c("Tte_AF_WB_Re1", "Tte_AF_WB_Re2", "Tte_AF_WB_Re3"), "Tte_AF_WB"),
+mean_CPM_calc("CPM_WB_10sp", c("Tce_SF_WB_Re1", "Tce_SF_WB_Re2", "Tce_SF_WB_Re3"), "Tce_SF_WB"),
+mean_CPM_calc("CPM_WB_10sp", c("Tms_AF_WB_Re1", "Tms_AF_WB_Re2", "Tms_AF_WB_Re3"), "Tms_AF_WB"),
+mean_CPM_calc("CPM_WB_10sp", c("Tcm_SF_WB_Re1", "Tcm_SF_WB_Re2", "Tcm_SF_WB_Re3"), "Tcm_SF_WB"),
+mean_CPM_calc("CPM_WB_10sp", c("Tsi_AF_WB_Re1", "Tsi_AF_WB_Re2", "Tsi_AF_WB_Re3"), "Tsi_AF_WB"),
+mean_CPM_calc("CPM_WB_10sp", c("Tpa_SF_WB_Re1", "Tpa_SF_WB_Re2", "Tpa_SF_WB_Re3"), "Tpa_SF_WB"),
+mean_CPM_calc("CPM_WB_10sp", c("Tge_AF_WB_Re1", "Tge_AF_WB_Re2", "Tge_AF_WB_Re3"), "Tge_AF_WB"),
+mean_CPM_calc("CPM_WB_10sp", c("Tps_SF_WB_Re1", "Tps_SF_WB_Re2", "Tps_SF_WB_Re3"), "Tps_SF_WB"),
+mean_CPM_calc("CPM_WB_10sp", c("Tdi_AF_WB_Re1", "Tdi_AF_WB_Re2", "Tdi_AF_WB_Re3"), "Tdi_AF_WB"))
+
+
+### RT 
+RT_10sp_mean_CPM <- cbind(
+mean_CPM_calc("CPM_RT_10sp", c("Tbi_SF_RT_Re1", "Tbi_SF_RT_Re2", "Tbi_SF_RT_Re3"), "Tbi_SF_RT"),
+mean_CPM_calc("CPM_RT_10sp", c("Tte_AF_RT_Re1", "Tte_AF_RT_Re2", "Tte_AF_RT_Re3"), "Tte_AF_RT"),
+mean_CPM_calc("CPM_RT_10sp", c("Tce_SF_RT_Re1", "Tce_SF_RT_Re2", "Tce_SF_RT_Re3"), "Tce_SF_RT"),
+mean_CPM_calc("CPM_RT_10sp", c("Tms_AF_RT_Re1", "Tms_AF_RT_Re2", "Tms_AF_RT_Re3"), "Tms_AF_RT"),
+mean_CPM_calc("CPM_RT_10sp", c("Tcm_SF_RT_Re1", "Tcm_SF_RT_Re2", "Tcm_SF_RT_Re3"), "Tcm_SF_RT"),
+mean_CPM_calc("CPM_RT_10sp", c("Tsi_AF_RT_Re1", "Tsi_AF_RT_Re2", "Tsi_AF_RT_Re3"), "Tsi_AF_RT"),
+mean_CPM_calc("CPM_RT_10sp", c("Tpa_SF_RT_Re1", "Tpa_SF_RT_Re2", "Tpa_SF_RT_Re3"), "Tpa_SF_RT"),
+mean_CPM_calc("CPM_RT_10sp", c("Tge_AF_RT_Re1", "Tge_AF_RT_Re2", "Tge_AF_RT_Re3"), "Tge_AF_RT"),
+mean_CPM_calc("CPM_RT_10sp", c("Tps_SF_RT_Re1", "Tps_SF_RT_Re2", "Tps_SF_RT_Re3"), "Tps_SF_RT"),
+mean_CPM_calc("CPM_RT_10sp", c("Tdi_AF_RT_Re1", "Tdi_AF_RT_Re2", "Tdi_AF_RT_Re3"), "Tdi_AF_RT"))
+
+
+### LG 
+LG_10sp_mean_CPM <- cbind(
+mean_CPM_calc("CPM_LG_10sp", c("Tbi_SF_LG_Re1", "Tbi_SF_LG_Re2", "Tbi_SF_LG_Re3"), "Tbi_SF_LG"),
+mean_CPM_calc("CPM_LG_10sp", c("Tte_AF_LG_Re1", "Tte_AF_LG_Re2", "Tte_AF_LG_Re3"), "Tte_AF_LG"),
+mean_CPM_calc("CPM_LG_10sp", c("Tce_SF_LG_Re1", "Tce_SF_LG_Re2", "Tce_SF_LG_Re3"), "Tce_SF_LG"),
+mean_CPM_calc("CPM_LG_10sp", c("Tms_AF_LG_Re1", "Tms_AF_LG_Re2", "Tms_AF_LG_Re3"), "Tms_AF_LG"),
+mean_CPM_calc("CPM_LG_10sp", c("Tcm_SF_LG_Re1", "Tcm_SF_LG_Re2", "Tcm_SF_LG_Re3"), "Tcm_SF_LG"),
+mean_CPM_calc("CPM_LG_10sp", c("Tsi_AF_LG_Re1", "Tsi_AF_LG_Re2", "Tsi_AF_LG_Re3"), "Tsi_AF_LG"),
+mean_CPM_calc("CPM_LG_10sp", c("Tpa_SF_LG_Re1", "Tpa_SF_LG_Re2", "Tpa_SF_LG_Re3"), "Tpa_SF_LG"),
+mean_CPM_calc("CPM_LG_10sp", c("Tge_AF_LG_Re1", "Tge_AF_LG_Re2", "Tge_AF_LG_Re3"), "Tge_AF_LG"),
+mean_CPM_calc("CPM_LG_10sp", c("Tps_SF_LG_Re1", "Tps_SF_LG_Re2", "Tps_SF_LG_Re3"), "Tps_SF_LG"),
+mean_CPM_calc("CPM_LG_10sp", c("Tdi_AF_LG_Re1", "Tdi_AF_LG_Re2", "Tdi_AF_LG_Re3"), "Tdi_AF_LG"))
+
+
+### export 
+
+dir.create("Gene_exp_for_OU_models")
+
+write.csv(WB_10sp_mean_CPM, file="Gene_exp_for_OU_models/WB_10sp_mean_CPM.csv", row.names=TRUE)
+write.csv(RT_10sp_mean_CPM, file="Gene_exp_for_OU_models/RT_10sp_mean_CPM.csv", row.names=TRUE)
+write.csv(LG_10sp_mean_CPM, file="Gene_exp_for_OU_models/LG_10sp_mean_CPM.csv", row.names=TRUE)
+
 
 #################################################################################################
 ### get DE_gene_table (code)
