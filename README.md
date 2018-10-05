@@ -31,6 +31,11 @@ This is the repository for the collected scripts used in the study *"Repeated ev
 * **Nconvergentgenes_out_tidier.py** | Collects output from 10sp_EdgeR_for_randomised_datasets.R runs
 * **10sp_EdgeR_for_randomised_datasets_plots.R** | plots histograms of the permutation analysis
 
+### Ornstein-Uhlenbeck (OU) models
+
+* **split_expression_file_for_OU.py** | This script takes the logCPM files from 10sp_edgeR.R and produces files that can be used to run Ornstein-Uhlenbeck (OU) models in the R package ouch.
+* **OU_models.R** | Script to run the OU models
+
 ### Additional scripts
 
 * **B2G_to_topGO.py** | Script for converting Blast2GO output into a format usable by topGO
@@ -54,12 +59,12 @@ for i in Tbi Tte Tce Tms Tcm Tsi Tpa Tge Tps Tdi; do
 done
 ```
 
-## To run the number of convergent genes permutation analysis
+## To run the Number of convergent genes permutation analysis
 
 * First make the datasets
 
 ```
-python readcount_sex_asex_randomiser.py -i Data/readcounts/10sp_orth_readcounts.csv -N 10000 -o rand
+python3.5 readcount_sex_asex_randomiser.py -i Data/readcounts/10sp_orth_readcounts.csv -N 10000 -o rand
 ```
 
 * Run Expression analysis on each file 
@@ -73,13 +78,36 @@ done
 * collect up the number of convergent genes
 
 ```
-python Nconvergentgenes_out_tidier.py -i rand_out_Nconvergentgenes_out/ -o rand
+python3.5 Nconvergentgenes_out_tidier.py -i rand_out_Nconvergentgenes_out/ -o rand
 ```
 
 
 * Plot histograms to see distribution using 10sp_EdgeR_for_randomised_datasets_plots.R
 
 
+## To run the Ornstein-Uhlenbeck (OU) models
+
+* First the differential expression analyses using 10sp_edgeR.R must be run to obtain mean expression datasets for each tissue. This data files will be in the (newly created) directory `Gene_exp_for_OU_models`
+
+* Split the expression file into a form that can be used by ouch
+
+```
+python3.5 split_expression_file_for_OU.py
+```
+
+* run OU models on each gene
+
+```
+## run in a loop in bash
+for tissue in WB RT LG ; do
+    in_dir=`echo $tissue"_GE_for_OU"`
+    out_dir=`echo $tissue"_OU_out"`
+    
+    for file in ./$in_dir/*.txt; do
+        Rscript OU_models.R $file $out_dir
+	done
+done
+```
 
 
 
