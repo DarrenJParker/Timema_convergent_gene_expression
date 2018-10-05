@@ -2,11 +2,13 @@
 
 This is the repository for the collected scripts used in the study *"Repeated evolution of asexuality involves convergent gene expression changes."* currently under review.
 
-## Components
+# Components
 
-### DATA
+## DATA
 
 * Contains read counts, GO terms, dN/dS and pN/pS estimates for input to the scripts below. 
+
+## SCRIPTS
 
 ### Differential expression analyses
 
@@ -25,7 +27,9 @@ This is the repository for the collected scripts used in the study *"Repeated ev
 ### Number of convergent genes permutation analysis
 
 * **readcount_sex_asex_randomiser.py** | Script to randomly switches the assignment of reproductive mode (sexual or asexual) within a species-pair for the readcount file (./Data/readcounts/10sp_orth_readcounts.csv)
-* 
+* **10sp_EdgeR_for_randomised_datasets.R** | EdgeR script to identify convergent gene expression changes between sexual and asexual species for the randomised datasets
+* **Nconvergentgenes_out_tidier.py** | Collects output from 10sp_EdgeR_for_randomised_datasets.R runs
+* **10sp_EdgeR_for_randomised_datasets_plots.R** | plots histograms of the permutation analysis
 
 ### Additional scripts
 
@@ -36,7 +40,9 @@ This is the repository for the collected scripts used in the study *"Repeated ev
 * **super_exact_test_table_parser.py** | Script to tidy up the output of super_exact_test_multitest_corrector.py
 
 
-## Infomation on running scripts
+# Infomation on running scripts
+
+## General 
 
 * All scripts should be run from the directory they are in. Output directories will be created to store output as the code is run. 
 * All python scripts were made using python 3.5. All contain help information which can be displayed by specifying no command line arguments.
@@ -48,7 +54,7 @@ for i in Tbi Tte Tce Tms Tcm Tsi Tpa Tge Tps Tdi; do
 done
 ```
 
-### for running the Number of convergent genes permutation analysis
+## To run the number of convergent genes permutation analysis
 
 * First make the datasets
 
@@ -77,9 +83,9 @@ python Nconvergentgenes_out_tidier.py -i rand_out_Nconvergentgenes_out/ -o rand
 
 
 
-## Abbreviations
+# Abbreviations
 
-### Species names:
+## Species names:
 
 Species name | Abbreviation | Reproductive mode 
 --- | --- | --- 
@@ -94,7 +100,7 @@ Species name | Abbreviation | Reproductive mode
 *Timema podura* | Tpa | sexual 
 *Timema genevievae* | Tge | asexual
 
-### Tissues:
+## Tissues:
 
 Tissue | Abbreviation 
 --- | --- 
