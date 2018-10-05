@@ -35,6 +35,7 @@ This is the repository for the collected scripts used in the study *"Repeated ev
 
 * **split_expression_file_for_OU.py** | This script takes the logCPM files from 10sp_edgeR.R and produces files that can be used to run Ornstein-Uhlenbeck (OU) models in the R package ouch.
 * **OU_models.R** | Script to run the OU models
+* **python OU_summarise_and_FDR.py** | Collects output from OU models corrects for multiple tests
 
 ### Additional scripts
 
@@ -109,7 +110,11 @@ for tissue in WB RT LG ; do
 done
 ```
 
+* Collect output and correct for multiple tests
 
+```
+python3.5 OU_summarise_and_FDR.py -w WB_OU_out -r RT_OU_out -l LG_OU_out
+```
 
 # Abbreviations
 
