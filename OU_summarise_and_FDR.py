@@ -48,6 +48,7 @@ for opt, arg in opts:
 ### get files and join
 
 WB_pvals = []
+WB_pvals_sel2 = []
 WB_gene_ord = []
 WB_gene_info = {}
 
@@ -69,11 +70,16 @@ for path, subdirs, files in os.walk(path):
 					genename = line[0].replace(".", "-")
 					g_info = line[1:]
 					
-					WB_pvals.append(float(line[-1]))
+					WB_pvals.append(float(line[5]))
+					WB_pvals_sel2.append(float(line[-1]))
 					WB_gene_ord.append(genename)
 					WB_gene_info[genename] = g_info
 
+
+
+
 RT_pvals = []
+RT_pvals_sel2 = []
 RT_gene_ord = []
 RT_gene_info = {}
 
@@ -91,13 +97,15 @@ for path, subdirs, files in os.walk(path):
 					genename = line[0].replace(".", "-")
 					g_info = line[1:]
 					
-					RT_pvals.append(float(line[-1]))
+					RT_pvals.append(float(line[5]))
+					RT_pvals_sel2.append(float(line[-1]))
 					RT_gene_ord.append(genename)
 					RT_gene_info[genename] = g_info
 
 
 
 LG_pvals = []
+LG_pvals_sel2 = []
 LG_gene_ord = []
 LG_gene_info = {}
 
@@ -115,7 +123,8 @@ for path, subdirs, files in os.walk(path):
 					genename = line[0].replace(".", "-")
 					g_info = line[1:]
 					
-					LG_pvals.append(float(line[-1]))
+					LG_pvals.append(float(line[5]))
+					LG_pvals_sel2.append(float(line[-1]))
 					LG_gene_ord.append(genename)
 					LG_gene_info[genename] = g_info
 
@@ -131,9 +140,19 @@ RT_pval_corr_list = list(pval_corr)
 rej, pval_corr = smm.multipletests(LG_pvals, method="fdr_bh")[:2]
 LG_pval_corr_list = list(pval_corr)
 
+## sel2
+rej, pval_corr = smm.multipletests(WB_pvals_sel2, method="fdr_bh")[:2]
+WB_pval_sel2_corr_list = list(pval_corr)
+
+rej, pval_corr = smm.multipletests(RT_pvals_sel2, method="fdr_bh")[:2]
+RT_pval_sel2_corr_list = list(pval_corr)
+
+rej, pval_corr = smm.multipletests(LG_pvals_sel2, method="fdr_bh")[:2]
+LG_pval_sel2_corr_list = list(pval_corr)
+
 ### output p-adjusted files
 
-header_out = header_txt + ",LRT_OU_brown_FDR"
+header_out = header_txt + ",LRT_OU_2opt_brown_FDR,LRT_OU_2opt_OU_multiopt_FDR"
 
 WB_out = open(WB_dir_name.replace("/", "") + "_wFDR.csv", "w")
 WB_out.write(header_out + "\n")
@@ -141,12 +160,13 @@ WB_out.write(header_out + "\n")
 for i in range(0,len(WB_gene_ord)):
 	gene_name = WB_gene_ord[i]
 	gene_FDR = WB_pval_corr_list[i]
+	gene_sel2_FDR = WB_pval_sel2_corr_list[i]
 	gene_info = WB_gene_info.get(gene_name)
 	gene_info_out = ""
 	for el in gene_info:
 		gene_info_out = gene_info_out + "," + el
 	
-	WB_out.write(gene_name + gene_info_out + "," + str(gene_FDR) + "\n")
+	WB_out.write(gene_name + gene_info_out + "," + str(gene_FDR) + "," + str(gene_sel2_FDR) + "\n")
 
 
 RT_out = open(RT_dir_name.replace("/", "") + "_wFDR.csv", "w")
@@ -155,12 +175,13 @@ RT_out.write(header_out + "\n")
 for i in range(0,len(RT_gene_ord)):
 	gene_name = RT_gene_ord[i]
 	gene_FDR = RT_pval_corr_list[i]
+	gene_sel2_FDR = RT_pval_sel2_corr_list[i]
 	gene_info = RT_gene_info.get(gene_name)
 	gene_info_out = ""
 	for el in gene_info:
 		gene_info_out = gene_info_out + "," + el
 	
-	RT_out.write(gene_name + gene_info_out + "," + str(gene_FDR) + "\n")
+	RT_out.write(gene_name + gene_info_out + "," + str(gene_FDR) + "," + str(gene_sel2_FDR) + "\n")
 
 
 LG_out = open(LG_dir_name.replace("/", "") + "_wFDR.csv", "w")
@@ -169,12 +190,13 @@ LG_out.write(header_out + "\n")
 for i in range(0,len(LG_gene_ord)):
 	gene_name = LG_gene_ord[i]
 	gene_FDR = LG_pval_corr_list[i]
+	gene_sel2_FDR = LG_pval_sel2_corr_list[i]
 	gene_info = LG_gene_info.get(gene_name)
 	gene_info_out = ""
 	for el in gene_info:
 		gene_info_out = gene_info_out + "," + el
 	
-	LG_out.write(gene_name + gene_info_out + "," + str(gene_FDR) + "\n")
+	LG_out.write(gene_name + gene_info_out + "," + str(gene_FDR) + "," + str(gene_sel2_FDR) + "\n")
 	
 
 
@@ -200,12 +222,40 @@ for el in LG_pval_corr_list:
 	LG_total = LG_total + 1
 	if el < 0.05:
 		LG_sig = LG_sig + 1
+
+WB_sig_sel2 = 0
+WB_total_sel2 = 0
+for el in WB_pval_sel2_corr_list:
+	WB_total_sel2 = WB_total_sel2 + 1
+	if el < 0.05:
+		WB_sig_sel2 = WB_sig_sel2 + 1
+
+RT_sig_sel2 = 0
+RT_total_sel2 = 0
+for el in RT_pval_sel2_corr_list:
+	RT_total_sel2 = RT_total_sel2 + 1
+	if el < 0.05:
+		RT_sig_sel2 = RT_sig_sel2 + 1
+		
+LG_sig_sel2 = 0
+LG_total_sel2 = 0
+for el in LG_pval_sel2_corr_list:
+	LG_total_sel2 = LG_total_sel2 + 1
+	if el < 0.05:
+		LG_sig_sel2 = LG_sig_sel2 + 1
+		
 		
 
-print("\nNumber of genes where the OU model fits better than Brownian model (FDR < 0.05):")
+print("\nNumber of genes where the OU (2 optima) model fits better than Brownian model (FDR < 0.05):")
 print("WB\t" + str(WB_sig) + " (" + str((WB_sig / WB_total * 100)) + " %)")
 print("RT\t" + str(RT_sig) + " (" + str((RT_sig / RT_total * 100)) + " %)")
 print("LG\t" + str(LG_sig) + " (" + str((LG_sig / LG_total * 100)) + " %)\n\n")
+
+print("\nNumber of genes where the OU (multi-asexual optima) model fits better than the OU (2 optima) model (FDR < 0.05):")
+print("WB\t" + str(WB_sig_sel2) + " (" + str((WB_sig_sel2 / WB_total * 100)) + " %)")
+print("RT\t" + str(RT_sig_sel2) + " (" + str((RT_sig_sel2 / RT_total * 100)) + " %)")
+print("LG\t" + str(LG_sig_sel2) + " (" + str((LG_sig_sel2 / LG_total * 100)) + " %)\n\n")
+
 
 print("Done, Avrana Kern\n\n")
 

@@ -111,10 +111,42 @@ oumodelcompare_tim_r$LRT_OU_brown_p <- pchisq(2 * (oumodelcompare_tim_r$OU_logli
 
 oumodelcompare_tim_r_out <- cbind(curr_gene_name, oumodelcompare_tim_r)
 
-write.csv(oumodelcompare_tim_r_out, file=paste(curr_gene_name, "OUmodelcompare.csv", sep = "_"), quote = FALSE, row.names = FALSE)
+#write.csv(oumodelcompare_tim_r_out, file=paste(curr_gene_name, "OUmodelcompare.csv", sep = "_"), quote = FALSE, row.names = FALSE)
 
 
+#######################################################################################################################
+# Next fit the OU model where the asex optima can be different to each other
+# OU models are the brownian model with a parameter to specify optima to test if the observed values are more likely due to drift or selection to these optima
 
+## selection model in this case is that Asex species have a different optima than sexuals and to each other.
+myoutimdata$sel2 <-as.factor(
+ifelse(myoutimdata$labels == "Tte", "asex1", 
+ifelse(myoutimdata$labels == "Tms", "asex2", 
+ifelse(myoutimdata$labels == "Tsi", "asex3", 
+ifelse(myoutimdata$labels == "Tge", "asex4", 
+ifelse(myoutimdata$labels == "Tdi", "asex5", "sex"))))))
+
+## fit
+sel_focal_gene2 <- hansen(data=myoutimdata["focal_gene"],tree=newoutimtree, regimes=myoutimdata["sel2"], sqrt.alpha=1, sigma=1, fit=TRUE)
+
+#plot(sel_focal_gene2) ## to check the optima are correct
+
+#### output
+
+oumodelcompare_tim_r2 <- as.data.frame(cbind(oumodelcompare_tim_r,
+summary(sel_focal_gene2)$loglik, summary(sel_focal_gene2)$dof))
+
+colnames(oumodelcompare_tim_r2) <-c("Brown_loglik","Brown_df","OU_2opt_loglik","OU_2opt_df","LRT_OU_2opt_brown_p", "OU_multiopt_loglik","OU_multiopt_sel2_df") 
+
+### compare the sel1 model with sel2 model with an LRT
+
+
+oumodelcompare_tim_r2$LRT_OU_2opt_OU_multiopt_p <- pchisq(2 * (oumodelcompare_tim_r2$OU_multiopt_loglik - oumodelcompare_tim_r2$OU_2opt_loglik), df=4, lower.tail=F)
+
+
+oumodelcompare_tim_r2_out <- cbind(curr_gene_name, oumodelcompare_tim_r2)
+
+write.csv(oumodelcompare_tim_r2_out, file=paste(curr_gene_name, "OUmodelcompare.csv", sep = "_"), quote = FALSE, row.names = FALSE)
 
 
 
