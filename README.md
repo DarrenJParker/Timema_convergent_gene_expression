@@ -2,7 +2,7 @@
 
 This is the repository for the collected scripts used in the study:
 
->"Parker, D. J., Bast, J., Jalvingh, K., Dumas, Z., Robinson-Rechavi, M., Schwander, T. 2019. [Repeated evolution of asexuality involves convergent gene expression changes](https://academic.oup.com/mbe/article/36/2/350/5184916?guestAccessKey=8e0f0601-f224-45c4-801b-92d1f8622bd2). *Molecular Biology and Evolution*. 36: 350–364
+>Parker, D. J., Bast, J., Jalvingh, K., Dumas, Z., Robinson-Rechavi, M., Schwander, T. 2019. [Repeated evolution of asexuality involves convergent gene expression changes](https://academic.oup.com/mbe/article/36/2/350/5184916?guestAccessKey=8e0f0601-f224-45c4-801b-92d1f8622bd2). *Molecular Biology and Evolution*. 36: 350–364
 
 Scripts for the paper are archived at http://dx.doi.org/10.5281/zenodo.2025853.
 
